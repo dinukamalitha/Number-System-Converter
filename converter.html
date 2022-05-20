@@ -11,30 +11,35 @@
 
 <body>
     <h1>Number System Converter</h1>
+
     <div class="container">
 
         <label for="binary">Binary:</label>
         <input type="text" name="binary" class="numSystem" id="binary">
-        <button type="submit">Convert</button>
+        <button type="submit" onclick="binaryConvert()">Convert</button>
         <br><br>
 
         <label for="octal">Octal:</label>
         <input type="text" name="octal" class="numSystem" id="octal">
-        <button type="submit">Convert</button>
+        <button type="submit" onclick="octalConvert()">Convert</button>
         <br><br>
 
         <label for="decimal">Decimal:</label>
         <input type="text" name="decimal" class="numSystem" id="decimal">
-        <button type="submit">Convert</button>
+        <button type="submit" onclick="decimalConvert()">Convert</button>
         <br><br>
 
         <label for="hexa">Hexadecimal:</label>
         <input type="text" name="hexa" class="numSystem" id="hexa">
-        <button type="submit">Convert</button>
+        <button type="submit" onclick="hexaConvert()">Convert</button>
         <br><br>
+
+        <button type="reset" onclick="Reset()">Clear</button>
+        
     </div>
 
     <script src="/Number Converter/converter.js"></script>
+    <!-- <script src="/Number Converter/bin.js"></script> -->
 </body>
 
 </html>
