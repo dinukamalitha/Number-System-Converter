@@ -4,7 +4,7 @@ var binaryValue = document.getElementById('binary');
 var octalValue = document.getElementById('octal');
 var hexaValue = document.getElementById('hexa');
 
-//==========================Decimal -> Binary ===============================
+//==========================Decimal -> Binary================================
 
 function decimalToBinary() {
     var val = decimalValue.value;
@@ -17,7 +17,7 @@ function decimalToBinary() {
     binaryValue.value = result;
 }
 
-//========================= Decimal -> Octal ================================
+//========================= Decimal -> Octal=================================
 
 function decimalToOctal() {
     var val = decimalValue.value;
@@ -30,7 +30,7 @@ function decimalToOctal() {
     octalValue.value = result;
 }
 
-//=============================Decimal -> Hexadecimal =======================
+//=============================Decimal -> Hexadecimal========================
 
 function decimalToHexa() {
     var val = decimalValue.value;
@@ -49,7 +49,7 @@ function decimalToHexa() {
     hexaValue.value = result;
 }
 
-//==============================Binary -> Decimal ===========================
+//==============================Binary -> Decimal============================
 
 function binaryToDecimal() {
     var val = binaryValue.value;
@@ -66,7 +66,7 @@ function binaryToDecimal() {
     decimalValue.value = result;
 }
 
-//===============================Binary -> Octal =============================
+//===============================Binary -> Octal==============================
 
 function binaryToOctal(){
     var val = binaryValue.value;
@@ -89,7 +89,7 @@ function binaryToOctal(){
     octalValue.value = finalResult;
 }
 
-//=================================Binary -> Hexa ===========================
+//=================================Binary -> Hexa============================
 
 function binaryToHexa(){
     var val = binaryValue.value;
@@ -119,7 +119,76 @@ function binaryToHexa(){
     hexaValue.value = finalResult;
 }
 
-//=================================Events==============================
+//================================Octal -> Decimal==========================
+ function octalToDecimal(){
+    var val = octalValue.value;
+    var result = 0;
+    var i = val.length-1;
+    var j = 0;
+    
+    while (i > -1) {
+        var y = (Number(val[i])) * (8 ** [j]);
+        result += y;
+        i--;
+        j++;
+    }
+    decimalValue.value = result;
+ }
+
+// =================================Octal -> Binary=============================
+
+function octalToBinary(){
+    var val = octalValue.value;
+    var result = 0 , finalResult = "";
+    var i = val.length-1;
+    var j = 0;
+    
+    while (i > -1) {
+        var y = (Number(val[i])) * (8 ** [j]);
+        result += y;
+        i--;
+        j++;
+    }
+
+    while (result > 0) {
+        var y = result % 2;
+        finalResult = y + finalResult;
+        result = Math.floor(result / 2);
+    }
+    binaryValue.value = finalResult;
+}
+
+//=================================Octal -> Hexa=============================
+
+function octalToHexa(){
+    var val = octalValue.value;
+    var result = 0 , finalResult ="";
+    var i = val.length-1;
+    var j = 0;
+    var arr = { 10: 'A', 11: 'B', 12: 'C', 13: 'D', 14: 'E', 15: 'F' };
+    
+    while (i > -1) {
+        var y = (Number(val[i])) * (8 ** [j]);
+        result += y;
+        i--;
+        j++;
+    }
+
+    while (result > 0) {
+        var y = result % 16;
+        if (y > 9) {
+            finalResult = arr[y] + finalResult;
+        }
+        else {
+            finalResult = y + finalResult;
+        }
+        result = Math.floor(result / 16);
+    }
+    hexaValue.value = finalResult;
+}
+
+
+//=================================Events====================================
 
 function decimalConvert() {
     decimalToBinary();
@@ -131,6 +200,12 @@ function binaryConvert(){
     binaryToOctal();
     binaryToDecimal();
     binaryToHexa();
+}
+
+function octalConvert(){
+    octalToDecimal();
+    octalToBinary();
+    octalToHexa();
 }
 
 function Reset() {
