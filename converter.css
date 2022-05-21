@@ -1,5 +1,5 @@
 body{
-    margin: 0;
+    margin: 10%;
     overflow: hidden;
 }
 .container{
@@ -14,3 +14,11 @@ h1{
     text-align: center;
 }
 
+.convert{
+    float: right;
+    margin-left: 10px;
+}
+
+.reset{
+    padding: 5px;
+}
