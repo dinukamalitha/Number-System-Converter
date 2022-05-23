@@ -187,7 +187,100 @@ function octalToHexa(){
     hexaValue.value = finalResult;
 }
 
+//=================================Hexa -> Decimal===========================
 
+function hexaToDecimal(){
+    var val = hexaValue.value;
+    var result = 0;
+    var i = val.length - 1;
+    var j = 0;
+    var arr = { 'A': 10, 'B': 11, 'C': 12, 'D': 13, 'E': 14, 'F': 15 };
+
+    while (i > -1) {
+        if (isNaN(val[i]) == true) {
+            var k = arr[val[i]];
+            var y = (Number(k)) * (16 ** [j]);
+            result += y;
+            i--;
+            j++;
+        }
+        else {
+            var y = (Number(val[i])) * (16 ** [j]);
+            result += y;
+            i--;
+            j++;
+        }
+    }
+    decimalValue.value = result;
+}
+
+//=================================Hexa -> Binary============================
+
+function hexaToBinary(){
+    var val = hexaValue.value;
+    var result = 0, finalResult = "";
+    var i = val.length - 1;
+    var j = 0;
+    var arr = { 'A': 10, 'B': 11, 'C': 12, 'D': 13, 'E': 14, 'F': 15 };
+
+    while (i > -1) {
+        if (isNaN(val[i]) == true) {
+            var k = arr[val[i]];
+            var y = (Number(k)) * (16 ** [j]);
+            result += y;
+            i--;
+            j++;
+        }
+        else {
+            var y = (Number(val[i])) * (16 ** [j]);
+            result += y;
+            i--;
+            j++;
+        }
+    }
+
+    while (result > 0) {
+        var y = result % 2;
+        finalResult = y + finalResult;
+        result = Math.floor(result / 2);
+    }
+
+    binaryValue.value = finalResult;
+}
+
+//=================================Hexa -> Octal=============================
+
+function hexaToOctal(){
+    var val = hexaValue.value;
+    var result = 0, finalResult = "";
+    var i = val.length - 1;
+    var j = 0;
+    var arr = { 'A': 10, 'B': 11, 'C': 12, 'D': 13, 'E': 14, 'F': 15 };
+
+    while (i > -1) {
+        if (isNaN(val[i]) == true) {
+            var k = arr[val[i]];
+            var y = (Number(k)) * (16 ** [j]);
+            result += y;
+            i--;
+            j++;
+        }
+        else {
+            var y = (Number(val[i])) * (16 ** [j]);
+            result += y;
+            i--;
+            j++;
+        }
+    }
+    
+    while (result > 0) {
+        var y = result % 8;
+        finalResult = y + finalResult;
+        result = Math.floor(result / 8);
+    }
+
+    octalValue.value = finalResult;
+}
 //=================================Events====================================
 
 function decimalConvert() {
@@ -206,6 +299,12 @@ function octalConvert(){
     octalToDecimal();
     octalToBinary();
     octalToHexa();
+}
+
+function hexaConvert(){
+    hexaToDecimal();
+    hexaToBinary();
+    hexaToOctal();
 }
 
 function Reset() {
