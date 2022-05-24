@@ -125,7 +125,7 @@ function binaryToOctal() {
             alert('Invalid Input: Input is not a Number!');
             Reset();
         }
-        else { 
+        else {
             for (let x of val) {
                 if (x > 1) {
                     alert('Invalid Input!');
@@ -138,7 +138,7 @@ function binaryToOctal() {
                         i--;
                         j++;
                     }
-        
+
                     while (result > 0) {
                         var y = result % 8;
                         finalResult = y + finalResult;
@@ -149,7 +149,7 @@ function binaryToOctal() {
             }
         }
     }
-    
+
 
 }
 
@@ -180,7 +180,7 @@ function binaryToHexa() {
                         i--;
                         j++;
                     }
-        
+
                     while (result > 0) {
                         var y = result % 16;
                         if (y > 9) {
@@ -191,13 +191,13 @@ function binaryToHexa() {
                         }
                         result = Math.floor(result / 16);
                     }
-        
+
                     hexaValue.value = finalResult;
                 }
             }
-         }
+        }
     }
-    
+
 
 }
 
@@ -229,9 +229,9 @@ function octalToDecimal() {
                     decimalValue.value = result;
                 }
             }
-         }
+        }
     }
-    
+
 
 }
 
@@ -261,7 +261,7 @@ function octalToBinary() {
                         i--;
                         j++;
                     }
-        
+
                     while (result > 0) {
                         var y = result % 2;
                         finalResult = y + finalResult;
@@ -270,9 +270,9 @@ function octalToBinary() {
                     binaryValue.value = finalResult;
                 }
             }
-         }
+        }
     }
-    
+
 
 }
 
@@ -290,7 +290,7 @@ function octalToHexa() {
             alert('Invalid Input: Input is not a Number!');
             Reset();
         }
-        else { 
+        else {
             for (let x of val) {
                 if (x > 7) {
                     alert('Invalid Input!');
@@ -303,7 +303,7 @@ function octalToHexa() {
                         i--;
                         j++;
                     }
-        
+
                     while (result > 0) {
                         var y = result % 16;
                         if (y > 9) {
@@ -317,10 +317,10 @@ function octalToHexa() {
                     hexaValue.value = finalResult;
                 }
             }
-        
+
         }
     }
-    
+
 }
 
 //=================================Hexa -> Decimal===========================
@@ -332,40 +332,31 @@ function hexaToDecimal() {
     var j = 0;
     var arr = { 'A': 10, 'B': 11, 'C': 12, 'D': 13, 'E': 14, 'F': 15 };
 
+
     for (let x of val) {
-        if (isNaN(x) == true) {
-            alert('Invalid Input: Input is not a Number!');
+        if (x > 'F') {
+            alert('Invalid Input!');
             Reset();
         }
         else {
-            for (let x of val) {
-                if (x > 'F') {
-                    alert('Invalid Input!');
-                    Reset();
+            while (i > -1) {
+                if (isNaN(val[i]) == true) {
+                    var k = arr[val[i]];
+                    var y = (Number(k)) * (16 ** [j]);
+                    result += y;
+                    i--;
+                    j++;
                 }
                 else {
-                    while (i > -1) {
-                        if (isNaN(val[i]) == true) {
-                            var k = arr[val[i]];
-                            var y = (Number(k)) * (16 ** [j]);
-                            result += y;
-                            i--;
-                            j++;
-                        }
-                        else {
-                            var y = (Number(val[i])) * (16 ** [j]);
-                            result += y;
-                            i--;
-                            j++;
-                        }
-                    }
-                    decimalValue.value = result;
+                    var y = (Number(val[i])) * (16 ** [j]);
+                    result += y;
+                    i--;
+                    j++;
                 }
             }
-         }
+            decimalValue.value = result;
+        }
     }
-    
-
 }
 
 //=================================Hexa -> Binary============================
@@ -377,48 +368,40 @@ function hexaToBinary() {
     var j = 0;
     var arr = { 'A': 10, 'B': 11, 'C': 12, 'D': 13, 'E': 14, 'F': 15 };
 
+
     for (let x of val) {
-        if (isNaN(x) == true) {
-            alert('Invalid Input: Input is not a Number!');
+        if (x > 'F') {
+            alert('Invalid Input!');
             Reset();
         }
         else {
-            for (let x of val) {
-                if (x > 'F') {
-                    alert('Invalid Input!');
-                    Reset();
+            while (i > -1) {
+                if (isNaN(val[i]) == true) {
+                    var k = arr[val[i]];
+                    var y = (Number(k)) * (16 ** [j]);
+                    result += y;
+                    i--;
+                    j++;
                 }
                 else {
-                    while (i > -1) {
-                        if (isNaN(val[i]) == true) {
-                            var k = arr[val[i]];
-                            var y = (Number(k)) * (16 ** [j]);
-                            result += y;
-                            i--;
-                            j++;
-                        }
-                        else {
-                            var y = (Number(val[i])) * (16 ** [j]);
-                            result += y;
-                            i--;
-                            j++;
-                        }
-                    }
-        
-                    while (result > 0) {
-                        var y = result % 2;
-                        finalResult = y + finalResult;
-                        result = Math.floor(result / 2);
-                    }
-        
-                    binaryValue.value = finalResult;
+                    var y = (Number(val[i])) * (16 ** [j]);
+                    result += y;
+                    i--;
+                    j++;
                 }
             }
-         }
-    }
-    
 
+            while (result > 0) {
+                var y = result % 2;
+                finalResult = y + finalResult;
+                result = Math.floor(result / 2);
+            }
+
+            binaryValue.value = finalResult;
+        }
+    }
 }
+
 
 //=================================Hexa -> Octal=============================
 
@@ -429,48 +412,41 @@ function hexaToOctal() {
     var j = 0;
     var arr = { 'A': 10, 'B': 11, 'C': 12, 'D': 13, 'E': 14, 'F': 15 };
 
+
     for (let x of val) {
-        if (isNaN(x) == true) {
-            alert('Invalid Input: Input is not a Number!');
+        if (x > 'F') {
+            alert('Invalid Input!');
             Reset();
         }
-        else { 
-            for (let x of val) {
-                if (x > 'F') {
-                    alert('Invalid Input!');
-                    Reset();
+        else {
+            while (i > -1) {
+                if (isNaN(val[i]) == true) {
+                    var k = arr[val[i]];
+                    var y = (Number(k)) * (16 ** [j]);
+                    result += y;
+                    i--;
+                    j++;
                 }
                 else {
-                    while (i > -1) {
-                        if (isNaN(val[i]) == true) {
-                            var k = arr[val[i]];
-                            var y = (Number(k)) * (16 ** [j]);
-                            result += y;
-                            i--;
-                            j++;
-                        }
-                        else {
-                            var y = (Number(val[i])) * (16 ** [j]);
-                            result += y;
-                            i--;
-                            j++;
-                        }
-                    }
-        
-                    while (result > 0) {
-                        var y = result % 8;
-                        finalResult = y + finalResult;
-                        result = Math.floor(result / 8);
-                    }
-        
-                    octalValue.value = finalResult;
+                    var y = (Number(val[i])) * (16 ** [j]);
+                    result += y;
+                    i--;
+                    j++;
                 }
             }
-        
+
+            while (result > 0) {
+                var y = result % 8;
+                finalResult = y + finalResult;
+                result = Math.floor(result / 8);
+            }
+
+            octalValue.value = finalResult;
         }
     }
-    
+
 }
+
 //=================================Events====================================
 
 function decimalConvert() {
