@@ -1,26 +1,83 @@
 body{
-    margin: 10%;
+    margin: 5%;
     overflow: hidden;
-    background-color: rgba(248, 245, 212, 0.986);
+    background-color: rgba(29, 28, 29, 0.986);
 }
 .container{
     margin-left: auto;
     margin-right: auto;
     padding: 5%;
-    background-color: rgb(248, 186, 186);
+    background-color: rgb(186, 241, 248);
     width: fit-content;
 }
 
 h1{
     text-align: center;
+    font-family: Verdana;
+    color: red;
+}
+
+label{
+    font-family: 'Courier New', Courier, monospace;
+    font-weight: 700;
+}
+
+input{
+    padding: 4px;
 }
 
 .convert{
+    cursor: pointer;
     float: right;
+    width: 100px;
+    border-radius: 5px;
+    padding: 5px;
     margin-left: 10px;
+    background-color: rgb(13, 19, 94);
+    color: white;
+    font-family: monospace;
+    font-weight: 900;
+    font-size: 16px;
+    border: none;
+}
+
+.convert:hover{
+    background-color: rgb(13, 24, 175);
+}
+
+#binary{
+    margin-left: 49px;
+    margin-bottom: 20px;
+}
+
+#octal{
+    margin-left: 59px;
+    margin-bottom: 20px;
+}
+
+#decimal{
+    margin-left: 39px;
+    margin-bottom: 20px;
 }
 
 .reset{
+    cursor: pointer;
+    width: 100px;
+    height: 40px;
+    border-radius: 5px;
+    margin-top: 20px;
     padding: 5px;
     margin-left: 40%;
+    background-color: rgb(114, 13, 13); 
+    color: white;
+    border-color: white;
+    color: white;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-weight: 900;
+    font-size: 20px;
+    border: none;
+}
+
+.reset:hover{
+    background-color: rgb(218, 25, 25);
 }
